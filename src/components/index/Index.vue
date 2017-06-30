@@ -1,16 +1,22 @@
 <template>
   <section>my first vue demo</section>
+  <div class="">{{name}}</div>
 </template>
 <script>
 export default {
   data () {
     return {
-      goodsInfo: {}
+      goodsInfo: {},
+      name: '2121'
     }
+  },
+  computed: {
   },
   methods: {
     seckillBox () {
       window.location.href = process.env.APIPORT + '/activities/views/activities/activity20170223/secondkill20170223.html?fromChannel='+this.$store.state.config.fromChannel+'&activityBox='+ this.$data.activeProducts.activityBox
+    },
+    confrim () {
     }
   },
   beforeRouteEnter (to, from, next) {

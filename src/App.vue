@@ -40,7 +40,9 @@
         "updateUserInfo"
       ])
     },
-    created () {}
+    created () {
+      this.updateUserInfo()
+    }
   }
 </script>
 <style lang="scss">

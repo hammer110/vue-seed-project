@@ -6,7 +6,7 @@ let url = ""
 // 根据不同的
 switch(process.env.NODE_ENV) {
   case "testing":
-    url = "/"
+    uw
     break;
   case "production":
     if (process.argv[2] && process.argv[2] == 'pre') {

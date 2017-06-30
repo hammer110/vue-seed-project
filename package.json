@@ -9,7 +9,7 @@
     "mock": "node build/dev-server.js mock",
     "test": "node build/test.js && gulp",
     "build": "node build/build.js",
-    "build:pre": "node build/build.js pre && cd qualitymarkets && anywhere"
+    "build:pre": "node build/build.js pre && cd dist && anywhere"
   },
   "dependencies": {
     "axios": "^0.16.0",

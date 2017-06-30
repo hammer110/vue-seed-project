@@ -14,7 +14,6 @@
 <script type="text/javascript">
   export default {
     methods: {
-      // 回退到万卡
       backWk () {
         const url = process.env.ONECARD
         window.location.href = url
