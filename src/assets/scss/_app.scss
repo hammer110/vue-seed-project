@@ -1,0 +1,156 @@
+@charset "utf-8";
+$colred: #f27274;
+$colddd: #dddddd;
+//
+@mixin px2rem($property, $values,$baseline-rem:75) {
+  $max: length($values);//返回$values列表的长度值
+  $pxValues: '';
+  $remValues: '';
+
+  @for $i from 1 through $max {
+    $value: (nth($values, $i));
+    $remValues: #{$remValues + $value/$baseline-rem}rem;
+
+    @if $i < $max {
+      $remValues: #{$remValues + " "};
+    }
+  }
+
+//  #{$property}: $pxValues;
+  #{$property}: $remValues;
+}
+@mixin lh($h, $lh){
+  @include px2rem(height, $h);
+  @include px2rem(line-height, $lh);
+}
+@mixin _icondb($w, $h, $mt){
+  @include px2rem(width, $w);
+  @include px2rem(height, $h);
+  vertical-align: middle;
+  display: block;
+  margin: 0 auto;
+  @include px2rem(margin-top, $mt);
+  background: {
+    repeat: no-repeat;
+    position: center center;
+    size: contain;
+  };
+}
+
+$legacy-support-for-ie: false !default;
+
+@mixin c3($key , $value){
+    -webkit-#{$key}: $value;
+    -moz-#{$key}: $value;
+    -o-#{$key}: $value;
+    #{$key}: $value;
+}
+.boradius{
+  @include px2rem(border-radius, 5);
+}
+
+$inline-block-alignment: middle !default;//设置一个默认的对齐方式
+@mixin display-inline($alignment: $inline-block-alignment) {
+  display: inline-block;
+  @if $alignment and $alignment != none {
+    vertical-align: $alignment;
+  }
+  @if $legacy-support-for-ie {
+    *vertical-align: auto;
+    zoom: 1;
+    *display: inline;
+  }
+}
+
+@mixin float($side:left){
+  float: unquote($side);
+  @if $legacy-support-for-ie {
+    _display:inline;
+  }
+}
+
+%pull-left {
+  @include float(left);
+}
+
+// //清除浮动clearfix
+@mixin clearfix {
+  @if $legacy-support-for-ie {
+    *zoom: 1;
+  }
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+    overflow: hidden;
+  }
+}
+
+%clearfix {
+  @include clearfix;
+}
+
+// //截取文本text-overflow  单行文本
+@mixin singleline-ellipsis($substract:0){//`$substract`单位为%
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100% - $substract;
+}
+
+// //多行
+@mixin lines-ellipsis($num){
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $num;
+  -webkit-box-orient: vertical;
+}
+@mixin bg_opacity($color, $op){
+
+   @if length($color) == 1{    // input color in 16
+       background:$color;
+       filter:alpha(opacity = $op *100);
+       background:rgba($color,$op);
+   }
+
+   @else if length($color) == 3{   // input color in RGB
+       background:rgb(nth($color,1),nth($color,2),nth($color,3));
+       filter:alpha(opacity = $op *100);
+       background:rgba(nth($color,1),nth($color,2),nth($color,3),$op);
+
+   }
+}
+
+$bgColor:#f8f8f8;
+.f0_bg{
+ background-color: $bgColor!important;
+}
+// //任何手机屏幕上px的统一
+@mixin px2px($name,$px){
+  #{$name}:round($px/2)*1px;
+  [data-dpr = "2"] &{
+    #{$name}:$px*1px;
+  }
+  [data-dpr = "2.5"] &{
+    #{$name}:round($px*2.5/2)*1px;
+  }
+
+  [data-dpr = "2.75"] &{
+    #{$name}:round($px*2.75/2)*1px;
+  }
+
+  [data-dpr = "3"] &{
+    #{$name}:round($px*3/2)*1px;
+  }
+  [data-dpr = "4"] &{
+    #{$name}:round($px*2)*1px;
+  }
+}
+
+@mixin font-dpr($px){
+  @include  px2px(font-size,$px)
+}

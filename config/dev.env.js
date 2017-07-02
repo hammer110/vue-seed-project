@@ -3,5 +3,5 @@ var prodEnv = require('./prod.env')
 
 module.exports = merge(prodEnv, {
   NODE_ENV: process.argv[2] && process.argv[2] == 'mock' ? '"mock"':'"development"',
-  APIPORT: "'https://sctest.9fbank.com'"
+  APIPORT: ""
 })

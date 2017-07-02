@@ -1,7 +1,6 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 var path = require('path')
 var colors = require('colors');
-// let url = process.env.NODE_ENV == "testing"?"//sctest.9fbank.com/qualitymarkets/":process.env.NODE_ENV == "production"?"//sc.9fbank.com/qualitymarkets/":"/"
 let url = ""
 // 根据不同的
 switch(process.env.NODE_ENV) {
@@ -41,7 +40,7 @@ module.exports = {
   },
   dev: {
     env: require('./dev.env'),
-    port: 8090,
+    port: 8888,
     autoOpenBrowser: true,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',

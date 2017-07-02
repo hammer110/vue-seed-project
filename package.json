@@ -1,8 +1,8 @@
 {
-  "name": "my-project",
+  "name": "vue-seed-project",
   "version": "1.0.0",
-  "description": "A Vue.js project",
-  "author": "刘金建 <liujinjian@9fbank.cc>",
+  "description": "A vue seed  project",
+  "author": "hammer110.com <master@hammer110.com>",
   "private": true,
   "scripts": {
     "start": "node build/dev-server.js",
@@ -15,11 +15,8 @@
     "axios": "^0.16.0",
     "babel-polyfill": "^6.23.0",
     "gulp": "^3.9.1",
-    "iscroll": "^5.2.0",
     "vconsole": "^2.5.2",
     "vue": "2.2.6",
-    "vue-awesome-swiper": "2.4.0",
-    "vue-lazyload": "^1.0.3",
     "vue-router": "2.3.0",
     "vuex": "2.2.1",
     "vuex-router-sync": "^4.1.2",

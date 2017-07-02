@@ -1,7 +1,7 @@
 /*
  * 万卡商城 入口文件 main.js
  * 简介：vue2.0 + vuex + vue-router + axios + es6 + webpack
- * @author liujinjian@9fbank.cc
+ * @author master@hammer110.com
 */
 import "babel-polyfill"
 import Vue from 'vue'                            // vue core
@@ -9,11 +9,11 @@ import VueRouter from 'vue-router'               // vue 路由
 import routes, { beforeEach, afterEach } from './router/'         // 引入路由表
 import { sync } from 'vuex-router-sync'
 import App from '@/App'
-import formValid from 'lib/formValid'
-import loadPlugin from 'lib/loadPlugin'
+import formValid from 'plugins/formValid'
+import loadPlugin from 'plugins/loading'
 import store from 'store/'      // vuex 单向数据里 core
-import http from 'lib/httpPlugin'
-import dialog from 'lib/dialogPlugin'
+import http from 'plugins/http'
+import dialog from 'plugins/dialog'
  // 初始化插件
 Vue.use(VueRouter)                               // 声明使用vue-router
 Vue.use(http)

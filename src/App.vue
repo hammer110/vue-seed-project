@@ -46,6 +46,7 @@
   }
 </script>
 <style lang="scss">
+@import './assets/scss/reset';  // base
 // 所有样式的集合
   .pop_box {
       position: fixed;
@@ -69,5 +70,14 @@
       -o-transform: translate(0, -50%);
       transform: translate(0, -50%);
       border-radius: .26667rem;
+  }
+  #successWrap .opa{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100001;
+    background: rgba(0, 0, 0, 0.5);
   }
 </style>
