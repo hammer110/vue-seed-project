@@ -73,6 +73,8 @@ var webpackConfig = merge(baseWebpackConfig, {
               path.join(__dirname, '../node_modules')
             ) === 0 )|| (module.resource.indexOf(
               path.join(__dirname, '../src/lib')
+            ) === 0) || (module.resource.indexOf(
+              path.join(__dirname, '../src/plugins')
             ) === 0)
           )
         )
