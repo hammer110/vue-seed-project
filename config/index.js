@@ -22,8 +22,9 @@ module.exports = {
   },
   dev: {
     env: require('./dev.env'),
-    port: 8888,
+    port: 8090,
     autoOpenBrowser: true,
+    assetsRoot: path.resolve(__dirname, '../app'),
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
