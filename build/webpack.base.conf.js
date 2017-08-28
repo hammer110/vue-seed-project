@@ -3,19 +3,32 @@ var utils = require('./utils')
 var config = require('../config')
 var webpack = require('webpack')
 var vueLoaderConfig = require('./vue-loader.conf')
-
+var colors = require('colors')
+var configObj = {}
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
-
+const env = process.env.NODE_ENV
+switch (env) {
+  case 'production':
+    configObj = config['build']
+    break;
+  case 'testing':
+    configObj = config['test']
+    break;
+  default:
+    configObj = config['dev']
+    break;
+}
+console.log("绝对路径地址为:  ".red+configObj.publicPath)
 module.exports = {
   entry: {
     app: './src/main.js'
   },
   output: {
-    path: config.build.assetsRoot,
+    path: configObj.assetsRoot,
     filename: '[name].js',
-    publicPath: config.build.assetsPublicPath
+    publicPath: configObj.assetsPublicPath
   },
   resolve: {
     extensions: ['.js', '.vue', '.json', '.css', '.scss'],

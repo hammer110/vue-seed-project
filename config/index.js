@@ -1,30 +1,12 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 var path = require('path')
-var colors = require('colors');
-let url = ""
-// 根据不同的
-switch(process.env.NODE_ENV) {
-  case "testing":
-    uw
-    break;
-  case "production":
-    if (process.argv[2] && process.argv[2] == 'pre') {
-      url = "/"
-    } else {
-      url = "/"
-    }
-    break;
-  default:
-    url = "/"
-}
-console.log("绝对路径地址为:  ".red+url.green);
 module.exports = {
   build: {
     env: require('./prod.env'),
     index: path.resolve(__dirname, '../dist/index.html'),
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: url,
+    assetsPublicPath: "/",
     productionSourceMap: false,
     // Gzip off by default as many popular static hosts such as
     // Surge or Netlify already gzip all static assets for you.
@@ -62,6 +44,7 @@ module.exports = {
     cssSourceMap: false
   },
   test: {
-    env: require('./test.env')
+    env: require('./test.env'),
+    assetsPublicPath: "/"
   }
 }
