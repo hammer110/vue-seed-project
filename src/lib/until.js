@@ -1,4 +1,3 @@
-import Base64 from 'lib/Base64'
 // 判断当前是否是安卓手机
 export const is_android = () => {
   var ua = navigator.userAgent.toLocaleLowerCase()
@@ -29,6 +28,6 @@ export const getQueryString = name => {
 }
 // 格式化金额
 export const fixed2NoRound = (money) => {
-  let newMoney=Math.ceil((money*100).toFixed(5))/100;
+  let newMoney=Math.ceil((money*100).toFixed(5))/100
   return newMoney.toFixed(2)
 }
