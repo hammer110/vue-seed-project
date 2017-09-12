@@ -19,7 +19,7 @@
   import { mapActions, mapGetters } from 'vuex'
   import Loading from 'components/common/Loading'
   import Toast from 'components/common/dialog/Toast'
-  import Dialog from 'components/common/dialog/'
+  import Dialog from 'components/common/dialog/Index'
   export default {
     data () {
       return {
